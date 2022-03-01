@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-generator": "^4.2.0",
+    "hbs": "^4.2.0",
+    "node": "^17.4.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Library List Page</title>
+</head>
+<body>
+    <div id="container">
+        <h2>Game List</h2>
+        <nav>
+            <a href="index.html">Back</a>
+        </nav>
+        
+        <style>
+            button{
+                margin-left: 10px;
+            }
+        </style>
+        <script>
+            
+            
+            fetch('/getData').then( data =>{
+                data.json().then( datas =>{
+                    var size = datas.size
+                    var div = document.createElement("div");
+                    let desc = document.createElement('p')
+                    desc.innerHTML = "Creating table of size " + size
+                    div.appendChild(desc)
+                    
+                    let table = document.createElement('table')
+                    for(var x = 0; x < size; x++){
+                        
+                        let row = table.insertRow()
+                        for(var y = 0; y < size; y++){
+                            
+                            let cell = row.insertCell()
+                            var color = ((1<<24)*Math.random()|0).toString(16)
+                            cell.bgColor = color
+                            let text = document.createTextNode(color)
+                            cell.width = 100
+                            cell.height = 100
+                            cell.appendChild(text)
+                        }
+                    }
+                    div.appendChild(table)
+                    document.body.appendChild(div)
+                })
+                
+            })
+            
+            
+        </script>
+    </div>
+</body>
+</html>
